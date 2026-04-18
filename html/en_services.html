@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services | OmniaBuild</title>
+  <link rel="icon" href="../assets/omniaBuildLogo.png">
+  <link rel="apple-touch-icon" href="../assets/omniaBuildLogo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="../js/services.js"></script>
+
+  <style>
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #eb6600 0%, transparent 70%);
+      filter: blur(120px);
+      opacity: 0.35;
+      z-index: -1;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-[#535260] text-white overflow-x-hidden">
+
+<!-- GLOW -->
+<div class="fixed inset-0 pointer-events-none z-0">
+  <div class="glow top-[-120px] left-[-120px]"></div>
+  <div class="glow bottom-[-120px] right-[-120px]"></div>
+</div>
+
+<!-- NAV -->
+<header class="flex justify-between items-center p-6 relative z-10">
+  <img src="../assets/omniaBuildLogo.png" class="w-40 md:w-60 h-auto">
+
+  <nav class="hidden md:flex gap-8 text-sm">
+    <a href="./en_index.html" class="hover:text-[#eb6600] transition">Home</a>
+    <a href="#ctaServizi" class="text-[#eb6600]">Services</a>
+    <a href="./it_services.html" class="hover:text-[#eb6600] transition">IT</a>
+  </nav>
+
+  <button id="menuBtn" class="md:hidden">☰</button>
+</header>
+
+<nav id="mobileMenu" class="max-h-0 flex flex-row items-center justify-around md:hidden overflow-hidden w-screen rounded-2xl transition-all duration-500">
+  <a href="./en_index.html" class="hover:text-[#eb6600] transition">Home</a>
+  <a href="#ctaServizi" class="hover:text-[#eb6600] transition">Services</a>
+  <a href="./it_services.html" class="hover:text-[#eb6600] transition">IT</a>
+</nav>
+
+<!-- HERO -->
+<section class="text-center py-32 px-6 relative z-10 fade-up">
+  <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+    Digital solutions<br>
+    <span class="text-[#eb6600]">for modern businesses</span>
+  </h1>
+
+  <p class="mt-6 text-gray-300 max-w-2xl mx-auto">
+    Software, automation and digital tools to transform the way your company works.
+  </p>
+</section>
+
+<!-- BLOCCO 1 -->
+<section class="relative py-24 px-6 md:px-10 bg-white/5 border-y border-white/10 fade-up">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-4xl font-bold text-[#eb6600] mb-6">
+      Tailored solutions for every business
+    </h2>
+    <p class="text-gray-300 leading-relaxed">
+      Every company has different processes. We build flexible systems that adapt to startups,
+      SMEs and large enterprises without rigid constraints.
+    </p>
+  </div>
+</section>
+
+<!-- BLOCCO 2 -->
+<section class="relative py-28 px-6 md:px-10 grid md:grid-cols-2 gap-12 items-center fade-up">
+    <img src="../assets/automazione.png" alt="soluzioniBusiness" class="absolute inset-0 w-full h-full object-cover z-[-20]">
+    <div class="bg-[radial-gradient(circle, #eb6600 0%, transparent 70%)] backdrop-blur-lg rounded-xl">
+        <h2 class="text-4xl font-bold text-[#eb6600] mb-4">
+            Efficiency and automation
+        </h2>
+    <p class="text-gray-300 leading-relaxed">
+      The right software reduces manual work, eliminates errors and speeds up every internal process.
+      Less wasted time, more value created.
+    </p>
+  </div>
+
+  <div class="p-10 rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/10 bg-[radial-gradient(circle, #eb6600 0%, transparent 70%)] backdrop-blur-lg z-10">
+    
+    <p class="text-gray-200">
+      Automations, integrations and smart tools to increase productivity and operational margins.
+    </p>
+  </div>
+
+</section>
+
+<!-- BLOCCO 3 -->
+<section class="relative overflow-hidden py-28 px-6 md:px-10 bg-[#eb6600]/10 border-y border-[#eb6600]/20 fade-up">
+
+  <img src="../assets/arrow-trend-up-solid.png" alt="trend" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 h-[140%] w-[40rem] -rotate-[10deg] opacity-30 z-[-20]">
+
+  <div class="max-w-5xl mx-auto text-center relative z-10">
+    <h2 class="text-4xl font-bold mb-6">
+      Real growth, not theoretical
+    </h2>
+
+    <p class="text-gray-200">
+      Optimizing processes means increasing decision-making speed, reducing costs and scaling faster.
+    </p>
+  </div>
+
+</section>
+
+<!-- BLOCCO 4 -->
+<section class="py-28 px-6 md:px-10 grid md:grid-cols-2 gap-12 items-center fade-up">
+    
+    <img src="../assets/team.png" alt="riunion" class="absolute inset-0 w-full h-full object-cover z-[-20]">
+
+  <div class="p-10 rounded-2xl bg-white/5 border border-white/10 bg-[radial-gradient(circle, #eb6600 0%, transparent 70%)] backdrop-blur-lg">
+    <p class="text-gray-300 ">
+      Technology is not only about processes, but also about people.
+      We create systems for internal communication, team management and company collaboration.
+    </p>
+  </div>
+
+  <div class="bg-[radial-gradient(circle, #eb6600 0%, transparent 70%)] backdrop-blur-lg">
+      <h2 class="text-4xl font-bold text-[#eb6600] mb-4">
+          Team & communication
+        </h2>
+    <p class="text-gray-300 leading-relaxed">
+      Dedicated apps and internal dashboards to improve coordination, task management and information flow between departments.
+    </p>
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section id="ctaServizi" class="text-center py-28 px-6 fade-up">
+
+  <h2 class="text-5xl font-bold mb-6">
+    Let’s build something together
+  </h2>
+
+  <p class="text-gray-400 max-w-xl mx-auto mb-10">
+    Contact us for a consultation and discover how we can optimize your business.
+  </p>
+
+  <div class="flex flex-col md:flex-row justify-center gap-4">
+    <a href="mailto:info@omniabuild-srl.com"
+       class="bg-[#eb6600] px-10 py-4 rounded-xl font-semibold hover:opacity-80 transition">
+      Email
+    </a>
+
+    <a href="mailto:omniabuildsrl@legalmail.it"
+       class="border border-white/20 px-10 py-4 rounded-xl hover:bg-white/10 transition">
+      PEC
+    </a>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center p-6 text-sm text-gray-400 relative z-10">
+  © 2026 OmniaBuild
+  <div class="flex flex-col md:flex-row gap-6 items-center md:items-start justify-between text-center md:text-left p-6 text-sm text-gray-400 relative z-10">
+    <p>ADDRESS: Via Tirso 26 <br>
+        ZIP CODE: 00198 ROME (RM) <br>
+        VAT Number: 17404541009</p>
+    <img src="../assets/omniaBuildLogo.png" class="w-40 md:w-60 h-auto">
+    <p>Contacts:<br>
+        Email: info@omniabuild-srl.com<br>
+        PEC: omniabuildsrl@legalmail.it</p>
+  </div>
+</footer>
+
+</body>
+</html>

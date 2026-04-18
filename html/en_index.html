@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="it" class="scroll-smooth overflow-x-hidden">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OmniaBuild</title>
+  <link rel="icon" href="../assets/omniaBuildLogo.png">
+  <link rel="apple-touch-icon" href="../assets/omniaBuildLogo.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="../main.js"></script>
+  <script defer src="../js/main.js"></script>
 
   <style>
     .glow {
@@ -35,24 +37,32 @@
 <body class="bg-[#535260] text-white overflow-x-hidden">
 
 <!-- GLOW BACKGROUND -->
-<div class="glow top-[-100px] left-[-100px]"></div>
-<div class="glow bottom-[-100px] right-[-100px]"></div>
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+  <div class="glow top-0 left-0"></div>
+  <div class="glow bottom-0 right-0"></div>
+</div>
 
 <!-- NAVBAR -->
 <header class="flex justify-between items-center p-6 pt-1 relative z-10">
-  <img src="..\assets\omniaBuildLogo.png" class="w-[15%] h-auto">
+  <img src="../assets/omniaBuildLogo.png" class="w-40 md:w-60 h-auto">
 
   <nav class="hidden md:flex gap-8 text-sm">
-    <a href="#" class="hover:text-[#eb6600] transition">Home</a>
-    <a href="it_services.html" class="hover:text-[#eb6600] transition">Servizi</a>
+    <a href="#CTA" class="hover:text-[#eb6600] transition">Home</a>
+    <a href="en_services.html" class="hover:text-[#eb6600] transition">Services</a>
     <a href="it_index.html" class="hover:text-[#eb6600] transition">IT</a>
   </nav>
 
   <button id="menuBtn" class="md:hidden">☰</button>
 </header>
 
+<nav id="mobileMenu" class="max-h-0 flex flex-row items-center justify-around md:hidden overflow-hidden w-screen rounded-2xl transition-all duration-500">
+  <a href="#CTA" class="hover:text-[#eb6600] transition">Home</a>
+    <a href="en_services.html" class="hover:text-[#eb6600] transition">Services</a>
+    <a href="it_index.html" class="hover:text-[#eb6600] transition">IT</a>
+</nav>
+
 <!-- HERO -->
-<section class="text-center py-32 px-6 relative z-10">
+<section class="text-center py-32 px-6 md:px-10 relative z-10">
   <h2 class="text-5xl md:text-7xl font-bold leading-tight fade-up">
     Business Software<br>
     <span class="text-[#eb6600]">Without Compromises</span>
@@ -76,30 +86,30 @@
 </section>
 
 <!-- FEATURES -->
-<section id="features" class="px-10 py-24 grid md:grid-cols-3 gap-10 relative z-10">
+<section id="features" class="px-6 md:px-10 py-24 grid md:grid-cols-3 gap-10">
 
-  <div class="relative fade-up bg-white/5 p-8 rounded-2xl backdrop-blur border border-white/10 group hover:scale-105 transition">
+  <div class="relative overflow-hidden fade-up bg-white/5 p-8 rounded-2xl backdrop-blur border border-white/10 group hover:scale-105 transition">
     <h3 class="text-xl font-bold text-[#eb6600] mb-3">Reliability</h3>
-    <img src="../assets/handshake-solid.png" alt="handshake" class="absolute w-[30%] rotate-[15deg] top-2 right-4 opacity-0 group-hover:opacity-30 transition-all duration-500">
+    <img src="../assets/handshake-solid.png" alt="handshake" class="absolute w-16 md:w-20 rotate-[15deg] top-2 right-4 opacity-0 group-hover:opacity-30 transition-all duration-500">
     <p class="text-gray-300">Tested software ready for enterprise environments.</p>
   </div>
 
-  <div class="relative fade-up bg-white/5 p-8 rounded-2xl backdrop-blur border border-white/10 group hover:scale-105 transition">
+  <div class="relative overflow-hidden fade-up bg-white/5 p-8 rounded-2xl backdrop-blur border border-white/10 group hover:scale-105 transition">
     <h3 class="text-xl font-bold text-[#eb6600] mb-3">Scalability</h3>
-    <img src="../assets/arrow-trend-up-solid.png" alt="trendUp" class="absolute w-[30%] rotate-[-15deg] top-2 right-4 opacity-0 group-hover:opacity-30 transition-all duration-500">
+    <img src="../assets/arrow-trend-up-solid.png" alt="trendUp" class="absolute w-16 md:w-20 rotate-[-15deg] top-2 right-4 opacity-0 group-hover:opacity-30 transition-all duration-500">
     <p class="text-gray-300">Grow without limits with flexible solutions.</p>
   </div>
 
-  <div class="relative fade-up bg-white/5 p-8 rounded-2xl backdrop-blur border border-white/10 group hover:scale-105 transition">
+  <div class="relative overflow-hidden fade-up bg-white/5 p-8 rounded-2xl backdrop-blur border border-white/10 group hover:scale-105 transition">
     <h3 class="text-xl font-bold text-[#eb6600] mb-3">Support</h3>
-    <img src="../assets/headset-solid.png" alt="headset" class="absolute w-[30%] rotate-[-15deg] top-2 right-4 opacity-0 group-hover:opacity-30 transition-all duration-500">
+    <img src="../assets/headset-solid.png" alt="headset" class="absolute w-16 md:w-20 rotate-[-15deg] top-2 right-4 opacity-0 group-hover:opacity-30 transition-all duration-500">
     <p class="text-gray-300">Continuous and dedicated assistance.</p>
   </div>
 
 </section>
 
 <!--  NUMERI -->
-<section class="py-24 grid md:grid-cols-3 text-center gap-10 fade-up">
+<section class="relative overflow-hidden py-24 grid md:grid-cols-3 text-center gap-10 fade-up">
 
   <img src="../assets/handshake.png" alt="handshake" class="absolute inset-0 w-full h-full object-cover z-[-20]">
 
@@ -121,7 +131,7 @@
 </section>
 
 <!-- CTA -->
-<section class="text-center py-28 fade-up">
+<section id="CTA" class="text-center px-6 md:px-10 py-28 fade-up">
 
   <h2 class="text-5xl font-bold mb-6">
     The right software<br>
@@ -133,7 +143,7 @@
   </p>
 
   <a href="it_services.html"
-     class="bg-[#eb6600] px-10 py-4 rounded-xl font-semibold hover:scale-105 transition-all duration-300">
+     class="bg-[#eb6600] px-10 py-4 rounded-xl overflow-hidden font-semibold hover:scale-105 transition-all duration-300">
     Get started
   </a>
 
@@ -142,11 +152,12 @@
 <!-- FOOTER -->
 <footer class="text-center p-6 text-sm text-gray-400 relative z-10">
   © 2026 OmniaBuild
-  <div class="flex flex-row items-center justify-between text-center p-6 text-sm text-gray-400 relative z-10">
+  <div class="flex flex-col md:flex-row gap-6 items-center md:items-start justify-between text-center md:text-left p-6 text-sm text-gray-400 relative z-10">
     <p>ADDRESS: Via Tirso 26 <br>
-        CAP: 00298 ROMA (RM) <br>
+        ZIP Code: 00198 ROME (RM) <br>
         VAT number: 17404541009</p>
-    <p>Contatti:<br>
+    <img src="../assets/omniaBuildLogo.png" class="w-40 md:w-60 h-auto">
+    <p>Contacts:<br>
         Email: info@omniabuild-srl.com<br>
         Certified Email (PEC): omniabuildsrl@legalmail.it</p>
   </div>
