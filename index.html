@@ -1,9 +1,68 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="scroll-smooth overflow-x-hidden">
 <head>
-  <meta http-equiv="refresh" content="0; url=./html/it_index.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OmniaBuild</title>
   <link rel="icon" href="../assets/omniaBuildLogo.png">
   <link rel="apple-touch-icon" href="../assets/omniaBuildLogo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="../js/main.js"></script>
+
+  <style>
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #eb6600 0%, transparent 70%);
+      filter: blur(120px);
+      opacity: 0.4;
+      z-index: -1;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector("body").classList.add("show");
+    });
+  </script>
 </head>
-<body></body>
+
+<body class="bg-[#535260] text-white overflow-x-hidden fade-up">
+
+  <!-- GLOW BACKGROUND -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="glow top-0 left-0"></div>
+    <div class="glow bottom-0 right-0"></div>
+  </div>
+
+  <img src="./assets/omniaBuildLogo.png" alt="OmniaBuild Logo" class="mx-auto mb-0">
+
+  <section class="flex items-center justify-around w-full">
+
+    <a href="./informatica/it_index.html" class="flex flex-col items-center justify-center text-center hover:scale-105 transition-transform duration-300">
+      <img src="./assets/immaginePerInformatica.png" alt="OmniaBuild sezione informatica" class="m-0 rounded-full w-[10rem] h-[10rem] hover:w-[100%] hover:rounded-none hover:h-screen object-cover">
+      <p class="m-0">Informatica</p>
+    </a>
+
+    <article class="flex flex-col items-center justify-center text-center">
+      <img src="./assets/immaginePerInfrastrutture.png" alt="OmniaBuild sezione infrastrutture" class="m-0 rounded-full w-[10rem] h-[10rem] object-cover">
+      <p class="m-0">infrastrutture</p>
+    </article>
+
+  </section>
+
+</body>
 </html>
