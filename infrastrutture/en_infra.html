@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Infrastructure</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CSS personalizzato -->
+    <style>
+
+    .glow {
+
+      position: absolute;
+
+      width: 500px;
+
+      height: 500px;
+
+      background: radial-gradient(circle, #eb6600 0%, transparent 70%);
+
+      filter: blur(120px);
+
+      opacity: 0.4;
+
+      z-index: -1;
+
+    }
+
+    .fade-up {
+
+      opacity: 0;
+
+      transform: translateY(40px);
+
+      transition: all 0.8s ease;
+
+    }
+
+    .fade-up.show {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+    }
+
+    /* Elementi riutilizzabili */
+
+        .service-circle {
+
+            transition: transform 0.25s ease;
+
+        }
+
+        .service-circle:hover {
+
+            transform: scale(1.05);
+
+        }
+
+        .service-summary {
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition: opacity 0.25s ease;
+
+        }
+
+        .service-circle:hover .service-summary {
+
+            opacity: 1;
+
+        }
+
+        .modal {
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition: opacity 0.2s ease;
+
+        }
+
+        .modal.active {
+
+            opacity: 1;
+
+            pointer-events: auto;
+
+        }
+
+    </style>
+
+</head>
+
+<body class="min-h-screen bg-[#535260] text-white overflow-x-hidden">
+
+    <div id="wrapperFadeUp" class="fade-up">
+
+        <!-- GLOW BACKGROUND -->
+
+        <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+
+            <div class="glow top-0 left-0"></div>
+
+            <div class="glow bottom-0 right-0"></div>
+
+        </div>
+
+        <!-- NAVBAR -->
+
+        <header class="flex justify-between items-center p-6 pt-1 relative z-10">
+
+            <img src="../assets/omniaBuildLogo.png" class="w-40 md:w-60 h-auto">
+
+            <nav class="hidden md:flex gap-8 text-sm">
+
+                <a href="../index.html" class="hover:text-[#eb6600] transition">Home</a>
+
+                <a href="./it_infra.html" class="hover:text-[#eb6600] transition">IT</a>
+
+            </nav>
+
+            <button id="menuBtn" class="md:hidden">☰</button>
+
+        </header>
+
+        <nav id="mobileMenu" class="max-h-0 flex flex-row items-center justify-around md:hidden overflow-hidden w-screen rounded-2xl transition-all duration-500">
+
+            <a href="../index.html" class="hover:text-[#eb6600] transition">Home</a>
+
+            <a href="./it_infra.html" class="hover:text-[#eb6600] transition">IT</a>
+
+        </nav>
+
+        <img src="../assets/omniaBuildLogo.png" alt="OmniaBuild Logo" class="mx-auto mb-0">
+
+        <!--
+            ========================================
+            SERVICES
+            ========================================
+        -->
+
+        <main>
+
+            <section class="flex flex-col items-center p-4">
+
+                <!-- SERVICE 1 -->
+
+                <article class="self-start flex items-center gap-4">
+
+                    <button
+                        class="service-circle service-item relative w-80 h-80 md:w-[500px] md:h-[500px] mx-20 flex items-center justify-center p-5 text-center cursor-pointer"
+                        data-service="0">
+
+                        <img
+                            src="../assets/manutenzioniFerroviarie.png"
+                            alt="Railway Maintenance"
+                            class="w-full h-full rounded-full object-fill overflow-hidden">
+
+                        <span
+                            class="service-summary absolute inset-0 flex items-center justify-center rounded-full bg-black/70 text-white text-md p-5">
+
+                            Modernisation and remediation of railway infrastructure.
+
+                        </span>
+
+                    </button>
+
+                    <p class="service-title font-bold text-2xl text-[#eb6600]">
+
+                        Railway Maintenance
+
+                    </p>
+
+                </article>
+
+
+                <!-- SERVICE 2 -->
+
+                <article class="self-end flex items-center gap-4">
+
+                    <p class="service-title font-bold text-2xl text-[#eb6600]">
+
+                        Road Maintenance
+
+                    </p>
+
+                    <button
+                        class="service-circle service-item relative w-80 h-80 md:w-[500px] md:h-[500px] mx-20 flex items-center justify-center p-5 text-center cursor-pointer"
+                        data-service="1">
+
+                        <img
+                            src="../assets/manutenzioniStradali.png"
+                            alt="Road Maintenance"
+                            class="w-full h-full rounded-full object-fill overflow-hidden">
+
+                        <span
+                            class="service-summary absolute inset-0 flex items-center justify-center rounded-full bg-black/70 text-white text-md p-5">
+
+                            Sealing and roadside ditch cleaning, grass cutting, sidewalk and drainage system restoration.
+
+                        </span>
+
+                    </button>
+
+                </article>
+
+
+                <!-- SERVICE 3 -->
+
+                <article class="self-start flex items-center gap-4">
+
+                    <button
+                        class="service-circle service-item relative w-80 h-80 md:w-[500px] md:h-[500px] mx-20 flex items-center justify-center p-5 text-center cursor-pointer"
+                        data-service="2">
+
+                        <img
+                            src="../assets/telecomunicazioni.png"
+                            alt="Telecommunications"
+                            class="w-full h-full rounded-full object-fill overflow-hidden">
+
+                        <span
+                            class="service-summary absolute inset-0 flex items-center justify-center rounded-full bg-black/70 text-white text-md p-5">
+
+                            Installation of telecommunications manholes and cabinets, cable distribution and restoration of areas affected by excavation works.
+
+                        </span>
+
+                    </button>
+
+                    <p class="service-title font-bold text-2xl text-[#eb6600]">
+
+                        Telecommunications
+
+                    </p>
+
+                </article>
+
+
+                <!-- SERVICE 4 -->
+
+                <article class="self-end flex items-center gap-4 mr-20">
+
+                    <p class="service-title font-bold text-2xl text-[#eb6600]">
+
+                        Civil Construction
+
+                    </p>
+
+                    <button
+                        class="service-circle service-item relative w-80 h-80 md:w-[500px] md:h-[500px] mx-20 flex items-center justify-center p-5 text-center cursor-pointer"
+                        data-service="3">
+
+                        <img
+                            src="../assets/edilizia.png"
+                            alt="Civil Construction"
+                            class="w-full h-full rounded-full object-fill overflow-hidden">
+
+                        <span
+                            class="service-summary absolute inset-0 flex items-center justify-center rounded-full bg-black/70 text-white text-md p-5">
+
+                            We transform ideas and spaces into high-quality residential and operational solutions.
+
+                        </span>
+
+                    </button>
+
+                </article>
+
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+
+        <footer class="text-center px-6 text-sm text-gray-400 relative z-10">
+
+            © 2026 OmniaBuild
+
+            <div class="flex flex-col md:flex-row gap-6 items-center md:items-start justify-between text-center md:text-left p-6 text-sm text-gray-400 relative z-10">
+
+                <p>
+                    ADDRESS: Via Tirso 26 <br>
+                    ZIP CODE: 00198 ROME (RM) <br>
+                    VAT Number: 17404541009
+                </p>
+
+                <img src="../assets/omniaBuildLogo.png" class="w-40 md:w-60 h-auto">
+
+                <p>
+                    Contacts:<br>
+                    Email: info@omniabuild.net<br>
+                    PEC: omniabuildsrl@legalmail.it
+                </p>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <!--
+        ========================================
+        POPUP / MODAL
+        ========================================
+    -->
+
+    <div
+        id="serviceModal"
+        class="modal w-screen fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+
+        <div
+            id="modalContent"
+            class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl bg-white p-6 sm:p-8">
+
+            <!-- X -->
+
+            <button
+                id="closeModal"
+                class="absolute top-4 right-4 text-2xl font-bold leading-none text-gray-500 hover:text-black"
+                aria-label="Close">
+
+                &times;
+
+            </button>
+
+
+            <!-- Title -->
+
+            <h2
+                id="modalTitle"
+                class="text-2xl text-gray-700 sm:text-3xl font-bold pr-8 mb-6">
+
+            </h2>
+
+            <!-- Content -->
+
+            <div
+                id="modalDescription"
+                class="text-gray-700 leading-relaxed">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!--
+        ========================================
+        JAVASCRIPT
+        ========================================
+    -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            document.querySelector("#wrapperFadeUp").classList.add("show");
+
+        });
+
+
+        /*
+         * ========================================
+         * SERVICE DATA
+         * ========================================
+         *
+         * Modify only these texts.
+         */
+
+        const services = [
+
+            {
+
+                title: "Railway Maintenance",
+
+                description: `
+
+                    <p class="mb-4">
+
+                        In the railway sector, we specialise in the remediation and modernisation
+                        of infrastructure, working to ensure efficient, safe lines capable of meeting
+                        the needs of contemporary mobility.
+
+                        Our activities primarily include site remediation, from vegetation management
+                        to road access, as well as the removal of former overhead line poles and the
+                        cleaning and restoration of reinforced concrete elements.
+
+                        Thanks to a solid organisation and qualified personnel, we coordinate every
+                        phase of our projects with punctuality and precision, ensuring works designed
+                        to withstand the test of time and support the development of rail transport.
+
+                    </p>
+
+                    <p class="mb-4">
+
+                        OMNIABUILD also strives to maintain constant technological development,
+                        ensuring a competitive presence in the sector and making a significant
+                        contribution to the development of infrastructure.
+
+                    </p>
+
+                `
+
+            },
+
+
+            {
+
+                title: "Road Maintenance",
+
+                description: `
+
+                    <p class="mb-4">
+
+                        We specialise in the construction and maintenance of road infrastructure,
+                        providing reliable, high-quality solutions designed to ensure safety,
+                        efficiency and long-term durability.
+
+                        Thanks to our experience in the sector and the use of modern technologies,
+                        we oversee every stage of the work with professionalism, ensuring excellent
+                        results for public authorities, companies and private clients.
+
+                    </p>
+
+                    <p>
+
+                        We ensure the safety and functionality of road networks through sealing
+                        works, roadside ditch cleaning, grass cutting, and the renovation of
+                        sidewalks and drainage systems.
+
+                    </p>
+
+                `
+
+            },
+
+
+            {
+
+                title: "Telecommunications",
+
+                description: `
+
+                    <p class="mb-4">
+
+                        OMNIABUILD S.r.l. stands out as a leading company in the network construction
+                        sector, with specific expertise in innovative excavation techniques such as
+                        mini-trenching and micro-trenching.
+
+                        These advanced methods minimise the impact on traffic during operations,
+                        offering a more sustainable and less invasive alternative to traditional
+                        excavation methods.
+
+                        These techniques are particularly useful in urban environments, where
+                        maintaining traffic flow is essential to minimise disruption to the community.
+
+                        Our main activities include the installation of telecommunications manholes
+                        and cabinets, cable distribution and the restoration of areas affected by
+                        excavation works.
+
+                        Restoration is carried out using highly resistant and durable materials,
+                        ensuring the safety and longevity of the renovated infrastructure.
+
+                    </p>
+
+                    <p>
+
+                        Thanks to a team of highly qualified workers and the use of state-of-the-art
+                        machinery, OMNIABUILD is able to handle complex projects with efficiency
+                        and precision.
+
+                        This technology- and innovation-oriented approach allows us to meet the
+                        needs of an increasingly demanding clientele, with solutions that combine
+                        speed, accuracy and environmental responsibility.
+
+                        OMNIABUILD also strives to maintain constant technological development,
+                        ensuring a competitive presence in the sector and making a significant
+                        contribution to the development of modern telecommunications infrastructure.
+
+                    </p>
+
+                `
+
+            },
+
+
+            {
+
+                title: "Civil Construction",
+
+                description: `
+
+                    <p class="mb-4">
+
+                        OMNIABUILD operates both in Italy and abroad.
+
+                        We are active in the public and private construction sectors, delivering
+                        buildings and projects that combine structural strength, aesthetics and
+                        functionality. From new constructions to renovations, we work with
+                        craftsmanship and modern techniques to ensure reliable and long-lasting results.
+
+                        Our international presence, particularly in the Middle East, represents
+                        a fundamental step in the growth and innovation of our company.
+
+                        Omniabuild operates on an international scale, offering the same level
+                        of quality, reliability and expertise that distinguishes us in the Italian
+                        market, while adapting to the specific requirements of different operating
+                        environments.
+
+                        Thanks to a solid organisation and a qualified team, we are able to manage
+                        complex construction sites, collaborate with public authorities and
+                        international partners, and fully comply with the technical and environmental
+                        regulations of the countries in which we operate.
+
+                        Every project is managed through a methodical approach, ensuring efficiency,
+                        safety and careful schedule management.
+
+                    </p>
+
+                    <p>
+
+                        Every project is handled with close attention to the client's needs,
+                        transforming ideas and spaces into high-quality residential and operational
+                        solutions.
+
+                    </p>
+
+                `
+
+            }
+
+        ];
+
+
+        /*
+         * ========================================
+         * DOM ELEMENTS
+         * ========================================
+         */
+
+        const modal = document.getElementById("serviceModal");
+
+        const modalContent = document.getElementById("modalContent");
+
+        const closeModalButton = document.getElementById("closeModal");
+
+        const modalTitle = document.getElementById("modalTitle");
+
+        const modalDescription = document.getElementById("modalDescription");
+
+        const serviceItems = document.querySelectorAll(".service-item");
+
+
+        /*
+         * ========================================
+         * POPUP OPEN
+         * ========================================
+         */
+
+        serviceItems.forEach((service) => {
+
+            service.addEventListener("click", () => {
+
+                const serviceIndex = service.dataset.service;
+
+                const selectedService = services[serviceIndex];
+
+                modalTitle.textContent = selectedService.title;
+
+                modalDescription.innerHTML = selectedService.description;
+
+                modal.classList.add("active");
+
+                // Prevent scrolling of the page behind the popup
+
+                document.body.classList.add("overflow-hidden");
+
+            });
+
+        });
+
+
+        /*
+         * ========================================
+         * POPUP CLOSE
+         * ========================================
+         */
+
+        function closeModal() {
+
+            modal.classList.remove("active");
+
+            document.body.classList.remove("overflow-hidden");
+
+        }
+
+
+        /*
+         * Close with X
+         */
+
+        closeModalButton.addEventListener("click", closeModal);
+
+
+        /*
+         * Close by clicking outside the window
+         */
+
+        modal.addEventListener("click", (event) => {
+
+            if (event.target === modal) {
+
+                closeModal();
+
+            }
+
+        });
+
+
+        /*
+         * Close with ESC
+         */
+
+        document.addEventListener("keydown", (event) => {
+
+            if (event.key === "Escape") {
+
+                closeModal();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
